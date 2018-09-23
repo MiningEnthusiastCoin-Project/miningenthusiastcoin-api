@@ -1,6 +1,6 @@
 var Common = require('../lib/common');
 var async = require('async');
-var vipstarcoincore = require('vipstarcoin-lib');
+var miningenthusiastcoincore = require('miningenthusiastcoin-lib');
 var TYPE = 'BLOCKS_MINED';
 
 function AddressBlocksMinedService(options) {
@@ -91,7 +91,7 @@ AddressBlocksMinedService.prototype.start = function (next) {
 
         self._rapidProtectedUpdateTip(self.lastTipHeight);
 
-        self.node.services.vipstarcoind.on('tip', self._rapidProtectedUpdateTip.bind(self));
+        self.node.services.miningenthusiastcoind.on('tip', self._rapidProtectedUpdateTip.bind(self));
 
         return next();
 
@@ -200,7 +200,7 @@ AddressBlocksMinedService.prototype.processBlock = function (blockHeight, next) 
 
 
     return async.waterfall([function (callback) {
-        return self.node.services.vipstarcoind.getJsonBlock(blockHeight, function (err, response) {
+        return self.node.services.miningenthusiastcoind.getJsonBlock(blockHeight, function (err, response) {
 
             if (err) {
                 return callback(err);
@@ -220,11 +220,11 @@ AddressBlocksMinedService.prototype.processBlock = function (blockHeight, next) 
         var txHash;
 
         switch (block.flags) {
-            case vipstarcoincore.Block.PROOF_OF_STAKE:
+            case miningenthusiastcoincore.Block.PROOF_OF_STAKE:
                 txHash = block.tx[1];
                 break;
 
-            case vipstarcoincore.Block.PROOF_OF_WORK:
+            case miningenthusiastcoincore.Block.PROOF_OF_WORK:
                 txHash = block.tx[0];
                 break;
         }
@@ -246,10 +246,10 @@ AddressBlocksMinedService.prototype.processBlock = function (blockHeight, next) 
         var minedBy;
 
         switch (block.flags) {
-            case vipstarcoincore.Block.PROOF_OF_STAKE:
+            case miningenthusiastcoincore.Block.PROOF_OF_STAKE:
                 minedBy = transaction.inputs[0].address;
                 break;
-            case vipstarcoincore.Block.PROOF_OF_WORK:
+            case miningenthusiastcoincore.Block.PROOF_OF_WORK:
                 minedBy = transaction.outputs[0].address;
                 break;
         }

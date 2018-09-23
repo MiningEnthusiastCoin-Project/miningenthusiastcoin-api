@@ -3,7 +3,7 @@ var BigNumber = require('bignumber.js');
 module.exports = {
     /**
      *
-     * TODO: not work for VIPSTARCOIN
+     * TODO: not work for MiningEnthusiastCoin
      * @param {Number} height
      * @return {BigNumber}
      */

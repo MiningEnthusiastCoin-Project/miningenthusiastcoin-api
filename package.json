@@ -1,22 +1,22 @@
 {
-  "name": "vipstarcoin-api",
-  "description": "A VIPSTARCOIN blockchain REST and web socket API service for VIPSTARCOINCORE Node.",
+  "name": "miningenthusiastcoin-api",
+  "description": "A MiningEnthusiastCoin blockchain REST and web socket API service for MiningEnthusiastCoinCore Node.",
   "version": "0.0.23",
-  "repository": "https://github.com/fkfk/vipstarcoin-api.git",
+  "repository": "https://github.com/MiningEnthusiastCoin-Project/miningenthusiastcoin-api.git",
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/fkfk/vipstarcoin-api/issues"
+    "url": "https://github.com/MiningEnthusiastCoin-Project/miningenthusiastcoin-api/issues"
   },
-  "homepage": "https://github.com/fkfk/vipstarcoin-api",
+  "homepage": "https://github.com/MiningEnthusiastCoin-Project/miningenthusiastcoin-api",
   "license": "MIT",
   "keywords": [
     "insight",
     "insight api",
     "blockchain",
-    "vipstarcoin api",
+    "miningenthusiastcoin api",
     "blockchain api",
     "json",
-    "vipstarcoincore"
+    "miningenthusiastcoincore"
   ],
   "engines": {
     "node": ">=0.12.0"
@@ -25,7 +25,7 @@
     "test": "NODE_ENV=test mocha -R spec --recursive"
   },
   "main": "lib",
-  "vipstarcoincoreNode": "lib",
+  "miningenthusiastcoincoreNode": "lib",
   "dependencies": {
     "async": "*",
     "bignumber.js": "^4.0.2",
@@ -38,7 +38,7 @@
     "moment": "^2.19.3",
     "mongoose": "^4.11.8",
     "morgan": "^1.7.0",
-    "vipstarcoin-lib": "git://github.com/fkfk/vipstarcoin-lib.git#master",
+    "miningenthusiastcoin-lib": "git://github.com/MiningEnthusiastCoin-Project/miningenthusiastcoin-lib.git#master",
     "request": "^2.83.0",
     "web3": "^0.18.4"
   },

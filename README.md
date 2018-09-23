@@ -8,9 +8,9 @@
 ## Table of Contents
 * [Getting Started](#getting-started)
 * [DGP info](#dgpinfo)
-* [QRC20 info](#qrc20-info)
-* [QRC20 transfers](#qrc20-transfers)
-* [QRC20 balances](#qrc20-balances)
+* [MRC20 info](#qrc20-info)
+* [MRC20 transfers](#qrc20-transfers)
+* [MRC20 balances](#qrc20-balances)
 
 ### Statistics
 * [Total 24h](#total-24h-statistic)
@@ -21,33 +21,33 @@
 * [Stake](#stake-statistic)
 * [Total Supply](#total-supply-statistic)
 
-A VIPSTARCOIN blockchain REST and web socket API service for [VIPSTARCOINCORE Node](https://github.com/fkfk/vipstarcoincore-node).
+A MiningEnthusiastCoin blockchain REST and web socket API service for [MiningEnthusiastCoinCore Node](https://github.com/MiningEnthusiastCoin-Project/miningenthusiastcoincore-node).
 
-This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/fkfk/vipstarcoin-explorer.
+This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/MiningEnthusiastCoin-Project/miningenthusiastcoin-explorer.
 
 ## Getting Started
 
 ```bashl
-npm install -g vipstarcoincore-node@latest
-vipstarcoincore-node create mynode
+npm install -g miningenthusiastcoincore-node@latest
+miningenthusiastcoincore-node create mynode
 cd mynode
-vipstarcoincore-node install vipstarcoin-api
-vipstarcoincore-node start
+miningenthusiastcoincore-node install miningenthusiastcoin-api
+miningenthusiastcoincore-node start
 ```
 
-The API endpoints will be available by default at: `http://localhost:3001/vipstarcoin-api/`
+The API endpoints will be available by default at: `http://localhost:3001/miningenthusiastcoin-api/`
 
 ## Prerequisites
 
-**Note:** You can use an existing VIPSTARCOIN data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `vipstarcoin.conf`, as well as a few other additional fields.
+**Note:** You can use an existing MiningEnthusiastCoin data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `miningenthusiastcoin.conf`, as well as a few other additional fields.
 
 
 ## Query Rate Limit
 
-To protect the server, vipstarcoin-api has a built it query rate limiter. It can be configurable in `vipstarcoincore-node.json` with:
+To protect the server, miningenthusiastcoin-api has a built it query rate limiter. It can be configurable in `miningenthusiastcoincore-node.json` with:
 ``` json
   "servicesConfig": {
-    "vipstarcoin-api": {
+    "miningenthusiastcoin-api": {
       "rateLimiterOptions": {
         "whitelist": ["::ffff:127.0.0.1"]
       }
@@ -58,7 +58,7 @@ To protect the server, vipstarcoin-api has a built it query rate limiter. It can
 Or disabled entirely with:
 ``` json
   "servicesConfig": {
-    "vipstarcoin-api": {
+    "miningenthusiastcoin-api": {
       "disableRateLimiter": true
     }
   }
@@ -70,11 +70,11 @@ Or disabled entirely with:
 ### Token Account Balance
 
 ```
-  `GET` /vipstarcoin-api/tokens/{:tokenAddressBase}/addresses/{:addressBase}/balance
+  `GET` /miningenthusiastcoin-api/tokens/{:tokenAddressBase}/addresses/{:addressBase}/balance
 ```
 or
 ```
-  `GET` /vipstarcoin-api/tokens/{:tokenAddressBase}/addresses/{:addressBase}/balance?format=object
+  `GET` /miningenthusiastcoin-api/tokens/{:tokenAddressBase}/addresses/{:addressBase}/balance?format=object
 ```
 
 * **Query Params**
@@ -99,11 +99,11 @@ This would return:
 
 ### Token Total supply
 ```
-    `GET` /vipstarcoin-api/tokens/{:tokenAddressBase}/total-supply
+    `GET` /miningenthusiastcoin-api/tokens/{:tokenAddressBase}/total-supply
 ```
 or
 ```
-  `GET` /vipstarcoin-api/tokens/{:tokenAddressBase}/total-supply?format=object
+  `GET` /miningenthusiastcoin-api/tokens/{:tokenAddressBase}/total-supply?format=object
 ```
 
 * **Query Params**
@@ -127,7 +127,7 @@ or
 ### Token Transactions
 
 ```
-  `GET` /vipstarcoin-api/tokens/{:tokenAddressBase}/transactions
+  `GET` /miningenthusiastcoin-api/tokens/{:tokenAddressBase}/transactions
 ```
 
 * **Query Params**
@@ -152,7 +152,7 @@ or
 
 Eg:
 ```
-  `GET` /vipstarcoin-api/tokens/QNdW79juyJNJ89h99D9vfo5QhCZpmavJNX/transactions?limit=20&offset=1&from_block=34101&to_block=34378&from_date_time=2017-10-27T01:23:10.000Z&to_date_time=2018-10-27T01:24:10.000Z&addresses[]=QbmrFnBhyMKUhrabXfaAWZTncSWbJA8FsG&addresses[]=QarHW2HjV8Z3njxiTuvUZU3hmqahKNZ49y
+  `GET` /miningenthusiastcoin-api/tokens/QNdW79juyJNJ89h99D9vfo5QhCZpmavJNX/transactions?limit=20&offset=1&from_block=34101&to_block=34378&from_date_time=2017-10-27T01:23:10.000Z&to_date_time=2018-10-27T01:24:10.000Z&addresses[]=QbmrFnBhyMKUhrabXfaAWZTncSWbJA8FsG&addresses[]=QarHW2HjV8Z3njxiTuvUZU3hmqahKNZ49y
 ```
 
 This would return:
@@ -189,7 +189,7 @@ This would return:
 
 ### Account Info
 ```
-  `GET` /vipstarcoin-api/contracts/{:contractHash}/info
+  `GET` /miningenthusiastcoin-api/contracts/{:contractHash}/info
 ```
 This would return:
 ```
@@ -219,7 +219,7 @@ This would return:
 
 ### Total 24h Statistic
 ```
-  `GET` /vipstarcoin-api/statistics/total
+  `GET` /miningenthusiastcoin-api/statistics/total
 ```
 This would return:
 ```
@@ -236,7 +236,7 @@ This would return:
 ```
 ### Transactions Statistic
 ```
-  `GET` /vipstarcoin-api/statistics/transactions?days=14
+  `GET` /miningenthusiastcoin-api/statistics/transactions?days=14
 ```
 This would return:
 ```
@@ -252,7 +252,7 @@ This would return:
 
 ### Fees Statistic
 ```
-  `GET` /vipstarcoin-api/statistics/fees?days=14
+  `GET` /miningenthusiastcoin-api/statistics/fees?days=14
 ```
 This would return:
 ```
@@ -266,7 +266,7 @@ This would return:
 ```
 ### Outputs Statistic
 ```
-  `GET` /vipstarcoin-api/statistics/outputs?days=14
+  `GET` /miningenthusiastcoin-api/statistics/outputs?days=14
 ```
 This would return:
 ```
@@ -280,7 +280,7 @@ This would return:
 ```
 ### Difficulty Statistic
 ```
-  `GET` /vipstarcoin-api/statistics/difficulty?days=14
+  `GET` /miningenthusiastcoin-api/statistics/difficulty?days=14
 ```
 This would return:
 ```
@@ -294,7 +294,7 @@ This would return:
 ```
 ### Stake Statistic
 ```
-  `GET` /vipstarcoin-api/statistics/stake?days=14
+  `GET` /miningenthusiastcoin-api/statistics/stake?days=14
 ```
 This would return:
 ```
@@ -310,11 +310,11 @@ This would return:
 ### Total Supply Statistic
 
 ```
-  `GET` /vipstarcoin-api/supply
+  `GET` /miningenthusiastcoin-api/supply
 ```
 or
 ```
-  `GET` /vipstarcoin-api/supply?format=object
+  `GET` /miningenthusiastcoin-api/supply?format=object
 ```
 This would return:
 ```
@@ -329,15 +329,15 @@ or
 
 ### Block
 ```
-  /vipstarcoin-api/block/[:hash]
-  /vipstarcoin-api/block/00000000a967199a2fad0877433c93df785a8d8ce062e5f9b451cd1397bdbf62
+  /miningenthusiastcoin-api/block/[:hash]
+  /miningenthusiastcoin-api/block/00000000a967199a2fad0877433c93df785a8d8ce062e5f9b451cd1397bdbf62
 ```
 
 ### Block Index
 Get block hash by height
 ```
-  /vipstarcoin-api/block-index/[:height]
-  /vipstarcoin-api/block-index/0
+  /miningenthusiastcoin-api/block-index/[:height]
+  /miningenthusiastcoin-api/block-index/0
 ```
 This would return:
 ```
@@ -350,8 +350,8 @@ which is the hash of the Genesis block (0 height)
 
 ### Raw Block
 ```
-  /vipstarcoin-api/rawblock/[:blockHash]
-  /vipstarcoin-api/rawblock/[:blockHeight]
+  /miningenthusiastcoin-api/rawblock/[:blockHash]
+  /miningenthusiastcoin-api/rawblock/[:blockHeight]
 ```
 
 This would return:
@@ -365,7 +365,7 @@ This would return:
 
 Get block summaries by date:
 ```
-  /vipstarcoin-api/blocks?limit=3&blockDate=2016-04-22
+  /miningenthusiastcoin-api/blocks?limit=3&blockDate=2016-04-22
 ```
 
 Example response:
@@ -399,31 +399,31 @@ Example response:
 
 ### Transaction
 ```
-  /vipstarcoin-api/tx/[:txid]
-  /vipstarcoin-api/tx/525de308971eabd941b139f46c7198b5af9479325c2395db7f2fb5ae8562556c
-  /vipstarcoin-api/rawtx/[:rawid]
-  /vipstarcoin-api/rawtx/525de308971eabd941b139f46c7198b5af9479325c2395db7f2fb5ae8562556c
+  /miningenthusiastcoin-api/tx/[:txid]
+  /miningenthusiastcoin-api/tx/525de308971eabd941b139f46c7198b5af9479325c2395db7f2fb5ae8562556c
+  /miningenthusiastcoin-api/rawtx/[:rawid]
+  /miningenthusiastcoin-api/rawtx/525de308971eabd941b139f46c7198b5af9479325c2395db7f2fb5ae8562556c
 ```
 
 ### Address
 ```
-  /vipstarcoin-api/addr/[:addr][?noTxList=1][&from=&to=]
-  /vipstarcoin-api/addr/mmvP3mTe53qxHdPqXEvdu8WdC7GfQ2vmx5?noTxList=1
-  /vipstarcoin-api/addr/mmvP3mTe53qxHdPqXEvdu8WdC7GfQ2vmx5?from=1000&to=2000
+  /miningenthusiastcoin-api/addr/[:addr][?noTxList=1][&from=&to=]
+  /miningenthusiastcoin-api/addr/mmvP3mTe53qxHdPqXEvdu8WdC7GfQ2vmx5?noTxList=1
+  /miningenthusiastcoin-api/addr/mmvP3mTe53qxHdPqXEvdu8WdC7GfQ2vmx5?from=1000&to=2000
 ```
 
 ### Address Properties
 ```
-  /vipstarcoin-api/addr/[:addr]/balance
-  /vipstarcoin-api/addr/[:addr]/totalReceived
-  /vipstarcoin-api/addr/[:addr]/totalSent
-  /vipstarcoin-api/addr/[:addr]/unconfirmedBalance
+  /miningenthusiastcoin-api/addr/[:addr]/balance
+  /miningenthusiastcoin-api/addr/[:addr]/totalReceived
+  /miningenthusiastcoin-api/addr/[:addr]/totalSent
+  /miningenthusiastcoin-api/addr/[:addr]/unconfirmedBalance
 ```
 The response contains the value in Satoshis.
 
 ### Unspent Outputs
 ```
-  /vipstarcoin-api/addr/[:addr]/utxo
+  /miningenthusiastcoin-api/addr/[:addr]/utxo
 ```
 Sample return:
 ```
@@ -454,13 +454,13 @@ Sample return:
 ### Unspent Outputs for Multiple Addresses
 GET method:
 ```
-  /vipstarcoin-api/addrs/[:addrs]/utxo
-  /vipstarcoin-api/addrs/2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f/utxo
+  /miningenthusiastcoin-api/addrs/[:addrs]/utxo
+  /miningenthusiastcoin-api/addrs/2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f/utxo
 ```
 
 POST method:
 ```
-  /vipstarcoin-api/addrs/utxo
+  /miningenthusiastcoin-api/addrs/utxo
 ```
 
 POST params:
@@ -470,30 +470,30 @@ addrs: 2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f
 
 ### Transactions by Block
 ```
-  /vipstarcoin-api/txs/?block=HASH
-  /vipstarcoin-api/txs/?block=00000000fa6cf7367e50ad14eb0ca4737131f256fc4c5841fd3c3f140140e6b6
+  /miningenthusiastcoin-api/txs/?block=HASH
+  /miningenthusiastcoin-api/txs/?block=00000000fa6cf7367e50ad14eb0ca4737131f256fc4c5841fd3c3f140140e6b6
 ```
 ### Transactions by Address
 ```
-  /vipstarcoin-api/txs/?address=ADDR
-  /vipstarcoin-api/txs/?address=mmhmMNfBiZZ37g1tgg2t8DDbNoEdqKVxAL
+  /miningenthusiastcoin-api/txs/?address=ADDR
+  /miningenthusiastcoin-api/txs/?address=mmhmMNfBiZZ37g1tgg2t8DDbNoEdqKVxAL
 ```
 
 ### Transactions Receipt
 ```
-  /vipstarcoin-api/txs/[:tx_id]/receipt
+  /miningenthusiastcoin-api/txs/[:tx_id]/receipt
 ```
 
 ### Transactions for Multiple Addresses
 GET method:
 ```
-  /vipstarcoin-api/addrs/[:addrs]/txs[?from=&to=]
-  /vipstarcoin-api/addrs/2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f/txs?from=0&to=20
+  /miningenthusiastcoin-api/addrs/[:addrs]/txs[?from=&to=]
+  /miningenthusiastcoin-api/addrs/2NF2baYuJAkCKo5onjUKEPdARQkZ6SYyKd5,2NAre8sX2povnjy4aeiHKeEh97Qhn97tB1f/txs?from=0&to=20
 ```
 
 POST method:
 ```
-  /vipstarcoin-api/addrs/txs
+  /miningenthusiastcoin-api/addrs/txs
 ```
 
 POST params:
@@ -541,7 +541,7 @@ Note: if pagination params are not specified, the result is an array of transact
 ### Transaction Broadcasting
 POST method:
 ```
-  /vipstarcoin-api/tx/send
+  /miningenthusiastcoin-api/tx/send
 ```
 POST params:
 ```
@@ -567,22 +567,22 @@ POST response:
 
 ### Historic Blockchain Data Sync Status
 ```
-  /vipstarcoin-api/sync
+  /miningenthusiastcoin-api/sync
 ```
 
 ### Live Network P2P Data Sync Status
 ```
-  /vipstarcoin-api/peer
+  /miningenthusiastcoin-api/peer
 ```
 
-### Status of the VIPSTARCOIN Network
+### Status of the MiningEnthusiastCoin Network
 ```
-  /vipstarcoin-api/status?q=xxx
+  /miningenthusiastcoin-api/status?q=xxx
 ```
 
 ### DGP info
 ```
-  /vipstarcoin-api/dgpinfo
+  /miningenthusiastcoin-api/dgpinfo
 ```
 
 Where "xxx" can be:
@@ -595,12 +595,12 @@ Where "xxx" can be:
 
 ### Utility Methods
 ```
-  /vipstarcoin-api/utils/estimatefee[?nbBlocks=2]
+  /miningenthusiastcoin-api/utils/estimatefee[?nbBlocks=2]
 ```
 
 ### Min Estimate Fee Per KB
 ```
-  /vipstarcoin-api/utils/minestimatefee[?nbBlocks=2]
+  /miningenthusiastcoin-api/utils/minestimatefee[?nbBlocks=2]
 ```
 
 resp:
@@ -611,24 +611,24 @@ resp:
 }
 ```
 
-### QRC20 info
+### MRC20 info
 ```
-  /vipstarcoin-api/erc20/:contractAddress
-```
-
-### QRC20 transfers
-```
-  /vipstarcoin-api/erc20/:contractAddress/transfers
+  /miningenthusiastcoin-api/erc20/:contractAddress
 ```
 
-### QRC20 balances
+### MRC20 transfers
 ```
-  /vipstarcoin-api/erc20/:contractAddress/balances
+  /miningenthusiastcoin-api/erc20/:contractAddress/transfers
+```
+
+### MRC20 balances
+```
+  /miningenthusiastcoin-api/erc20/:contractAddress/balances
 ```
 
 ### Call Contract
 ```
-/vipstarcoin-api/contracts/:contractaddress/hash/:contracthash/call
+/miningenthusiastcoin-api/contracts/:contractaddress/hash/:contracthash/call
 ```
 
 ## Web Socket API

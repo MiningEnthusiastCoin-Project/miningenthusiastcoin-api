@@ -19,8 +19,8 @@ function AllTokensListService(options) {
     this.lastTipHeight = 0;
     this.lastTipInProcess = false;
 
-    this._rapidProtectedUpdateTip(this.node.services.vipstarcoind.height);
-    this.node.services.vipstarcoind.on('tip', this._rapidProtectedUpdateTip.bind(this));
+    this._rapidProtectedUpdateTip(this.node.services.miningenthusiastcoind.height);
+    this.node.services.miningenthusiastcoind.on('tip', this._rapidProtectedUpdateTip.bind(this));
 
 }
 
